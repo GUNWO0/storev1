@@ -28,4 +28,11 @@ public class StoreService {
         Store store = storeRepository.findByid(id);
         return store;
     }
+
+    // 3번
+    @Transactional // insert, delete, uptate시에 사용 : 함수 종료시 commit 됨.
+    public void 상품삭제(int id) {
+
+        storeRepository.deleteById(id);
+    }
 }
