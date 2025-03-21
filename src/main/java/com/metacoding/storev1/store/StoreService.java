@@ -44,4 +44,19 @@ public class StoreService {
         // 3. 삭제
         storeRepository.deleteById(id); // write (DML = insert, delete, update)
     }
+
+    @Transactional
+    public void 상품수정(Integer id, String name, String stock, String price) {
+        // 1. 상품조회
+
+        Store store = storeRepository.findByid(id);
+
+        // 2. 없으면 예외 터트리기
+        if (store == null)
+            throw new RuntimeException("상품없어");
+
+        // 3. 상품 수정
+        storeRepository.updateById(id, name, stock, price);
+
+    }
 }

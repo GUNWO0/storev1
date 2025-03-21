@@ -61,7 +61,9 @@ public class StoreController {
     }
 
     @PostMapping("/store/{id}/update")
-    public String update(@PathVariable("id") Integer id) {
+    public String update(@PathVariable("id") Integer id, @RequestParam("name") String name,
+            @RequestParam("stock") String stock, @RequestParam("price") String price) {
+        storeService.상품수정(id, name, stock, price);
         return "redirect:/store/" + id;
     }
 

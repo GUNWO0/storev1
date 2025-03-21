@@ -2,9 +2,9 @@
 
 <section>
     <form action="/store/{{model.id}}/update" method="POST">
-        <input type="text" value="{{model.name}}"><br>
-        <input type="text" value="{{model.stock}}"><br>
-        <input type="text" value="{{model.price}}"><br>
+        <input type="text" value="{{model.name}}" name="name"><br>
+        <input type="text" value="{{model.stock}}" name="stock"><br>
+        <input type="text" value="{{model.price}}" name="price"><br>
         <button type="submit">상품수정</button>
     </form>
 </section>
