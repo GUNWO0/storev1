@@ -46,7 +46,7 @@ public class StoreService {
     }
 
     @Transactional
-    public void 상품수정(Integer id, String name, String stock, String price) {
+    public void 상품수정(int id, String name, int stock, int price) {
         // 1. 상품조회
 
         Store store = storeRepository.findByid(id);
