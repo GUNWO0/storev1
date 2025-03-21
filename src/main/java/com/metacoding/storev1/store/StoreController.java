@@ -38,7 +38,9 @@ public class StoreController {
     }
 
     @GetMapping("/store/{id}/update-form")
-    public String updateForm(@PathVariable("id") Integer id) {
+    public String updateForm(@PathVariable("id") Integer id, HttpServletRequest request) {
+
+        request.setAttribute("model", storeService.상세보기(id));
         return "store/update-form";
     }
 

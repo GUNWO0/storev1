@@ -2,6 +2,8 @@ package com.metacoding.storev1.store;
 
 import java.util.List;
 
+import javax.management.RuntimeErrorException;
+
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -32,7 +34,14 @@ public class StoreService {
     // 3번
     @Transactional // insert, delete, uptate시에 사용 : 함수 종료시 commit 됨.
     public void 상품삭제(int id) {
+        // 1. 상품 있어?
+        Store store = storeRepository.findByid(id);
 
-        storeRepository.deleteById(id);
+        // 2. 없으면 예외 터트리기
+        if (store == null)
+            throw new RuntimeException("상품없어");
+
+        // 3. 삭제
+        storeRepository.deleteById(id); // write (DML = insert, delete, update)
     }
 }
